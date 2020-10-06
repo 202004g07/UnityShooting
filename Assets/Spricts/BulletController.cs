@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour, IDestroyable
@@ -11,7 +12,7 @@ public class BulletController : MonoBehaviour, IDestroyable
     {
         transform.Translate(0, Speed * Time.deltaTime, 0);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemy"))
