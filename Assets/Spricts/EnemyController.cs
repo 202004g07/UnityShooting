@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Monetization;
 
 public class EnemyController : MonoBehaviour, IDestroyable
 {
     [SerializeField] private float Speed = 1;
     [SerializeField] private GameObject ExplosionEffects;
+    [SerializeField] private float ShakeEffectPow = 0.15f;
+    [SerializeField] private float ShakeEffectTime = 0.5f;
+
     private GameObject UI_Manager;
     private void Start()
     {
@@ -20,6 +25,8 @@ public class EnemyController : MonoBehaviour, IDestroyable
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            HitEffectCamera.HitEffect(ShakeEffectTime, ShakeEffectPow);
+            UI_Manager.GetComponent<Score>().AddScore();
             Destroy();
         }
     }
@@ -33,7 +40,6 @@ public class EnemyController : MonoBehaviour, IDestroyable
     }
     private void OnDestroy()
     {
-        UI_Manager.GetComponent<Score>().AddScore();
         Instantiate(ExplosionEffects, transform.position, Quaternion.identity);
     }
 }

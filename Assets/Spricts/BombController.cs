@@ -5,7 +5,11 @@ using UnityEngine;
 public class BombController : MonoBehaviour, IDestroyable
 {
     [SerializeField] private float Speed = 10;
-
+    private GameObject UI_Manager;
+    private void Start()
+    {
+        UI_Manager = GameObject.Find("UI_Manager");
+    }
     void Update()
     {
         transform.Translate(0, -Speed * Time.deltaTime, 0);
@@ -25,6 +29,9 @@ public class BombController : MonoBehaviour, IDestroyable
     public void KillAllEnemys()
     {
         var enemys = GameObject.FindGameObjectsWithTag("Enemy");
+
+        UI_Manager.GetComponent<Score>().AddScore(enemys.Length);
+
         foreach (var es in enemys)
         {
             Destroy(es);

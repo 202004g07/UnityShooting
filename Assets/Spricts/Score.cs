@@ -19,4 +19,11 @@ public class Score : MonoBehaviour
     {
         point++;
     }
+    public void AddScore(int num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            point++;
+        }
+    }
 }
