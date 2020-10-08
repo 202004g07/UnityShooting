@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject BombPrefab;
+    [SerializeField] private BombController BombPrefab;
 
     private void Start()
     {

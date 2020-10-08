@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2516863684499648293}
   m_Layer: 0
   m_Name: BombPrefab
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
+  ShakeEffectPow: 0.3
+  ShakeEffectTime: 0.5
 --- !u!58 &2516863684499648293
 CircleCollider2D:
   m_ObjectHideFlags: 0

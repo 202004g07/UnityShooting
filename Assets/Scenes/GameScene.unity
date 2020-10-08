@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6be18eabd7bd8d47a2d8e0d775befee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 8039909210688961418, guid: 8110304462740f2478d704c18190ab5f,
+  BulletPrefab: {fileID: 8039909210688961422, guid: 8110304462740f2478d704c18190ab5f,
     type: 3}
 --- !u!1 &53430397
 GameObject:
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.4
+  time: 1
 --- !u!61 &433725601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -790,7 +791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc9fa01968109c4d977974173c21923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombPrefab: {fileID: 2516863684499648289, guid: 5a86cb6a3381270418882b6d82a29632,
+  BombPrefab: {fileID: 2516863684499648290, guid: 5a86cb6a3381270418882b6d82a29632,
     type: 3}
 --- !u!1 &1728706139
 GameObject:
@@ -835,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158f7b72cc1f77d4bbbdc5cf9b93b71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 8878216421196475636, guid: 52d9c3a3672aa4f4a80ccedcce61c72d,
+  EnemyPrefab: {fileID: 8878216421196475639, guid: 52d9c3a3672aa4f4a80ccedcce61c72d,
     type: 3}
   Span: 1
 --- !u!1 &1961278522

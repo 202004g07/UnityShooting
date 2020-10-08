@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Monetization;
@@ -22,13 +23,17 @@ public class EnemyController : MonoBehaviour, IDestroyable
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Bomb")) return;
+
         Debug.Log(collision.gameObject.name);
+        HitEffectCamera.HitEffect(ShakeEffectTime, ShakeEffectPow);
+
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            HitEffectCamera.HitEffect(ShakeEffectTime, ShakeEffectPow);
             UI_Manager.GetComponent<Score>().AddScore();
-            Destroy();
         }
+
+        Destroy();
     }
     private void OnBecameInvisible()
     {

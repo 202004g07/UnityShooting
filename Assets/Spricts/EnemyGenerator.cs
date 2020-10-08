@@ -5,7 +5,7 @@ using UnityEngine.Analytics;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject EnemyPrefab;
+    [SerializeField] private EnemyController EnemyPrefab;
     [SerializeField] private float Span = 1;
 
     private void Start()

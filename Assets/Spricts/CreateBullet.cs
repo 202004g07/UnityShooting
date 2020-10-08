@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreateBullet : MonoBehaviour
 {
-    [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private BulletController BulletPrefab;
 
     // Update is called once per frame
     void Update()

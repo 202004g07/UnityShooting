@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowTest : MonoBehaviour
+public class SlowTimeScale : MonoBehaviour
 {
     [SerializeField] private Ease ease = Ease.InOutExpo;
     [SerializeField] private float time = 2.0f;

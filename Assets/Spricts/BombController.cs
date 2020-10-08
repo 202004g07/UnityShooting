@@ -5,6 +5,9 @@ using UnityEngine;
 public class BombController : MonoBehaviour, IDestroyable
 {
     [SerializeField] private float Speed = 10;
+    [SerializeField] private float ShakeEffectPow = 0.15f;
+    [SerializeField] private float ShakeEffectTime = 0.5f;
+
     private GameObject UI_Manager;
     private void Start()
     {
@@ -29,8 +32,10 @@ public class BombController : MonoBehaviour, IDestroyable
     public void KillAllEnemys()
     {
         var enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        var enemysNum = enemys.Length;
 
-        UI_Manager.GetComponent<Score>().AddScore(enemys.Length);
+        HitEffectCamera.HitEffect(ShakeEffectTime, ShakeEffectPow * (1 + enemysNum / 10));
+        UI_Manager.GetComponent<Score>().AddScore(enemysNum);
 
         foreach (var es in enemys)
         {
