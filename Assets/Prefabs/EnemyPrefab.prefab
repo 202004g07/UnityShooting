@@ -96,23 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d245e1d254f9b4fad1f529678b9cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 2.21
   ExplosionEffects: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 3}
-  OnHitEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3274656608219609488, guid: 0edc772176039114ebd9ecbeeb2ab837,
-          type: 3}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  player: {fileID: 6126992667003311972, guid: 7b82568043414fb4198c3ad8c12c42f8, type: 3}
+  ShakeEffectPow: 0.15
+  ShakeEffectTime: 0.5
 --- !u!61 &8878216421196475632
 BoxCollider2D:
   m_ObjectHideFlags: 0

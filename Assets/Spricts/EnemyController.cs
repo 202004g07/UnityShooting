@@ -12,10 +12,12 @@ public class EnemyController : MonoBehaviour, IDestroyable
     [SerializeField] private float ShakeEffectPow = 0.15f;
     [SerializeField] private float ShakeEffectTime = 0.5f;
 
+    private PlayerController Player;
     private GameObject UI_Manager;
     private void Start()
     {
         UI_Manager = GameObject.Find("UI_Manager");
+        Player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
     void Update()
     {
@@ -25,8 +27,12 @@ public class EnemyController : MonoBehaviour, IDestroyable
     {
         if (collision.CompareTag("Bomb")) return;
 
-        Debug.Log(collision.gameObject.name);
         HitEffectCamera.HitEffect(ShakeEffectTime, ShakeEffectPow);
+
+        if (collision.CompareTag("Player"))
+        {
+            Player.Damage();
+        }
 
         if (collision.gameObject.CompareTag("Bullet"))
         {

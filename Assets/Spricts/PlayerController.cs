@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float Speed = 1;
-    [SerializeField] private float time = 1;
+    [SerializeField] private float Life = 1;
 
     private Color BG_Color;
     private Color m_Color;
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
+
+    private float damage;
+    private float damageCount = 0;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -17,13 +21,24 @@ public class PlayerController : MonoBehaviour
         BG_Color = Camera.main.backgroundColor;
         m_Color = spriteRenderer.color;
 
-        Debug.Log(BG_Color);
+        damage = 1 / Life;
     }
     void Update()
     {
         if (Time.timeScale != 1) return;
-        spriteRenderer.material.color = Color.Lerp(m_Color, BG_Color, time);
         //移動
         transform.Translate(Input.GetAxis("Horizontal") * Speed, 0, 0);
+
+    }
+
+    public void Damage()
+    {
+        damageCount += damage;
+        spriteRenderer.material.color = Color.Lerp(m_Color, BG_Color, damageCount);
+        // TODO:
+        if (m_Color == BG_Color)
+        {
+            //ToDo ゲームオーバー処理
+        }
     }
 }
