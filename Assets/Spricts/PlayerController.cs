@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float Speed = 1;
     [SerializeField] private float Life = 1;
+    [SerializeField] private GameDirector gameDirector;
 
     private Color BG_Color;
     private Color m_Color;
@@ -35,10 +36,11 @@ public class PlayerController : MonoBehaviour
     {
         damageCount += damage;
         spriteRenderer.material.color = Color.Lerp(m_Color, BG_Color, damageCount);
-        // TODO:
-        if (m_Color == BG_Color)
+
+        if (damageCount >= 1)
         {
             //ToDo ゲームオーバー処理
+            gameDirector.GoToGameOverScene();
         }
     }
 }
