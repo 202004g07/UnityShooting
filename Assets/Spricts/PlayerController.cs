@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Time.timeScale != 1) return;
-        spriteRenderer.material.SetColor("_BaseColor", Color.Lerp(m_Color, BG_Color, time));
+        spriteRenderer.material.color = Color.Lerp(m_Color, BG_Color, time);
         //移動
         transform.Translate(Input.GetAxis("Horizontal") * Speed, 0, 0);
     }
