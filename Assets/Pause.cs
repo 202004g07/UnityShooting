@@ -6,6 +6,7 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     [SerializeField] private GameObject PauseUI;
+    [SerializeField] private float AnimationTime = 1;
     private void Start()
     {
         PauseUI.SetActive(false);
@@ -24,8 +25,9 @@ public class Pause : MonoBehaviour
 
                 pauseUI_TransCashe.localScale = Vector3.zero;
 
-                PauseUI.transform.DOScale(pauseUI_DefualtScale, 1.2f)
-                                 .SetEase(Ease.OutQuad);
+                pauseUI_TransCashe.DOScale(pauseUI_DefualtScale, AnimationTime)
+                                 .SetEase(Ease.OutQuad)
+                                 .SetUpdate(true);
             }
             else
             {
