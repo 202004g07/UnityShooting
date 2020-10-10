@@ -12,7 +12,16 @@ public class GameDirector : MonoBehaviour
 
     public void GoToGameOverScene()
     {
+        var gameOverTransCashe = GameOverUI.transform;
+
         SlowTimeScale.SlowTime(time, EndTimeScale, ease);
-        GameOverUI.SetActive(true);
+        gameOverTransCashe.DOLocalMove(Vector3.zero, 1f)
+                          .SetUpdate(true)
+                          .SetEase(Ease.OutBounce)
+                          .SetDelay(time);
+    }
+    private void Update()
+    {
+        Debug.Log(Time.timeScale);
     }
 }

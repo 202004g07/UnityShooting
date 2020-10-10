@@ -96,9 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d245e1d254f9b4fad1f529678b9cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2.21
+  Speed: 5
   ExplosionEffects: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 3}
-  player: {fileID: 6126992667003311972, guid: 7b82568043414fb4198c3ad8c12c42f8, type: 3}
   ShakeEffectPow: 0.15
   ShakeEffectTime: 0.5
 --- !u!61 &8878216421196475632

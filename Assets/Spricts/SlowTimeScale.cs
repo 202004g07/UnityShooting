@@ -8,13 +8,13 @@ public static class SlowTimeScale
     //[SerializeField] private Ease ease = Ease.InOutExpo;
     //[SerializeField] private float time = 2.0f;
     //[SerializeField] private float EndTimeScale = 0;
-    public static void SlowTime(float time, float EndTimeScale, Ease ease)
+    public static DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> SlowTime(float time, float EndTimeScale, Ease ease)
     {
-        DOTween.To(
+        return DOTween.To(
             () => Time.timeScale,
             num => Time.timeScale = num,
-            EndTimeScale,
-            time)
+            EndTimeScale, //最終的な数値
+            time)         //アニメーション時間
             .SetEase(ease);
     }
 }
