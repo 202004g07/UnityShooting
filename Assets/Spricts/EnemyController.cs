@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Monetization;
 
-public class EnemyController : MonoBehaviour, IDestroyable
+public class EnemyController : MonoBehaviour, IDestroyable, IMovable
 {
     [SerializeField] private float Speed = 1;
     [SerializeField] private GameObject ExplosionEffects;
@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour, IDestroyable
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
     void Update()
+    {
+        Move();
+    }
+    public void Move()
     {
         transform.Translate(0, -Speed * Time.deltaTime, 0);
     }

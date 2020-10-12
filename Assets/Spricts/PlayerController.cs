@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IMovable
 {
     [SerializeField] private GameDirector gameDirector;
     [SerializeField] private Score UI_Manager;
@@ -46,12 +46,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Time.timeScale != 1) return;
         //移動
-        transform.Translate(Input.GetAxis("Horizontal") * Speed, 0, 0);
+        Move();
         if (Input.GetKeyDown(KeyCode.Q) && hasBomb)
         {
             KillAllEnemys();
             UseBomb();
         }
+    }
+    public void Move()
+    {
+        transform.Translate(Input.GetAxis("Horizontal") * Speed, 0, 0);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -101,17 +105,4 @@ public class PlayerController : MonoBehaviour
             Destroy(es);
         }
     }
-    //GameObject[] GetChildren(string parentName)
-    //{
-    //    // 検索し、GameObject型に変換
-    //    var parent = GameObject.Find(parentName) as GameObject;
-    //    // 見つからなかったらreturn
-    //    if (parent == null) return null;
-    //    // 子のTransform[]を取り出す
-    //    var transforms = parent.GetComponentsInChildren<Transform>();
-    //    // 使いやすいようにtransformsからgameObjectを取り出す
-    //    var gameObjects = from t in transforms select t.gameObject;
-    //    // 配列に変換してreturn
-    //    return gameObjects.ToArray();
-    //}
 }
