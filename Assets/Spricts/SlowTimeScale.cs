@@ -15,6 +15,7 @@ public static class SlowTimeScale
             num => Time.timeScale = num,
             EndTimeScale, //最終的な数値
             time)         //アニメーション時間
-            .SetEase(ease);
+            .SetEase(ease)
+            .SetUpdate(true);
     }
 }

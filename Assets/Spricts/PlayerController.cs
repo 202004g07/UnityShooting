@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             //ToDo ゲームオーバー処理
             gameDirector.GoToGameOverScene();
+            gameDirector.LastScore();
         }
     }
 }

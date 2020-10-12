@@ -26,4 +26,8 @@ public class Score : MonoBehaviour
             point++;
         }
     }
+    public string GetScore()
+    {
+        return score.text;
+    }
 }
