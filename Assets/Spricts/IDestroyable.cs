@@ -8,6 +8,5 @@ public interface IDestroyable
 }
 public interface IMovable
 {
-    float Speed;
     void Move();
 }
