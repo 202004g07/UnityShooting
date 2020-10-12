@@ -6,3 +6,7 @@ public interface IDestroyable
 {
     void Destroy();
 }
+public interface IMovable
+{
+    void Move();
+}
