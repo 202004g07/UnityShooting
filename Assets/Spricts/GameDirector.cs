@@ -24,7 +24,7 @@ public class GameDirector : MonoBehaviour
     }
     public void GoToGameOverScene()
     {
-        GameUI.SetActive(!GameUI.activeSelf);
+        GameUI.SetActive(false);
 
 
         HitEffectCamera.HitEffect(0.15f, 0.5f);
@@ -50,6 +50,8 @@ public class GameDirector : MonoBehaviour
     }
     private void Retry()
     {
+        DOTween.Clear();
+
         Time.timeScale = 1;
         var gameScene = SceneManager.GetActiveScene();
 
