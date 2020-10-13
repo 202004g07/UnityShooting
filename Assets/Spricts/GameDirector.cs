@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] private Text GO_Score;
     [SerializeField] private Score ScoreText;
     [SerializeField] private Button RetryButton;
+    [SerializeField] private GameObject ExplosionEffects;
 
     [SerializeField] private Ease ease = Ease.InOutExpo;
     [SerializeField] private float time = 2.0f;
@@ -23,8 +24,10 @@ public class GameDirector : MonoBehaviour
     }
     public void GoToGameOverScene()
     {
-        GameUI.SetActive(false);
+        GameUI.SetActive(!GameUI.activeSelf);
 
+
+        HitEffectCamera.HitEffect(0.15f, 0.5f);
         var gameOverTransCashe = GameOverUI.transform;
 
         SlowTimeScale.SlowTime(time, EndTimeScale, ease);
@@ -32,6 +35,14 @@ public class GameDirector : MonoBehaviour
                           .SetUpdate(true)
                           .SetEase(Ease.OutBounce)
                           .SetDelay(time);
+
+        DOVirtual.DelayedCall(time - 1, () =>
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Instantiate(ExplosionEffects, new Vector3(Random.Range(-3, 3f), Random.Range(-6, 6f)), Quaternion.identity);
+            }
+        });
     }
     public void LastScore()
     {
