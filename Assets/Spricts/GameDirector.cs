@@ -50,8 +50,4 @@ public class GameDirector : MonoBehaviour
         }
         SceneManager.LoadScene(gameScene.name);
     }
-    private void Update()
-    {
-        // Debug.Log(Time.timeScale);
-    }
 }

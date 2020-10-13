@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.AssetImporters;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Monetization;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDestroyable, IMovable
 {
