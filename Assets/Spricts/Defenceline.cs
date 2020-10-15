@@ -19,5 +19,5 @@ public class Defenceline
             return instance;
         }
     }
-    public float Durability;
+    public float Durability { get; set; }
 }

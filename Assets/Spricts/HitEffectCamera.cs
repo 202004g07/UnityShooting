@@ -7,6 +7,12 @@ public static class HitEffectCamera
 {
     public static void HitEffect(float time, float power)
     {
-        var tweener = Camera.main.DOShakePosition(time, power);
+        //var cameraPos = Camera.main.transform.position;
+        var tweener = Camera.main.DOShakePosition(time, power)
+                            .OnComplete(()=>
+                            {
+                                Camera.main.transform.position = new Vector3(0,0,-10);
+                            });
+        
     }
 }
