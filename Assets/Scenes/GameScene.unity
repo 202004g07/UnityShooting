@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211757573a99c2d43afd72b046dc5f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   Durability: 100
   gameDirector: {fileID: 1608410774}
 --- !u!1 &794210578
@@ -2649,7 +2649,9 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 8878216421196475639, guid: 52d9c3a3672aa4f4a80ccedcce61c72d,
     type: 3}
   Span: 1
-  MultiEnemy: 0.99
+  Accselarate: 1.02
+  MultiEnemy: 0.15
+  ResetSpanTime: 0.75
 --- !u!1 &1823047450
 GameObject:
   m_ObjectHideFlags: 0

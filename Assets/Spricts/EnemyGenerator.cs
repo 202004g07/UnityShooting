@@ -8,18 +8,32 @@ public class EnemyGenerator : MonoBehaviour
 {
     [SerializeField] private EnemyController EnemyPrefab;
     [SerializeField] private float Span = 1;
+    [SerializeField] private float Accselarate = 1.02f;
     [SerializeField] [Range(0, 1)] private float MultiEnemy = 0.2f;
+    [SerializeField] [Range(0, 1)] private float ResetSpanTime=0.7f;
 
-    //private float startTime;
+    private float SpanBaffa;
     private void Start()
     {
-       // startTime = Time.time;
+        SpanBaffa = Span;
         StartCoroutine(CreateEnemy());
+        StartCoroutine(ChangeSpan());
     }
     private void Update()
     {
-        Span /= 1.0001f;
         Debug.Log(Span);
+    }
+    IEnumerator ChangeSpan()
+    {
+        while (true)
+        {
+            Span /= 1.02f;
+            if (Span<ResetSpanTime)
+            {
+                Span = SpanBaffa;
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
     IEnumerator CreateEnemy()
     {
@@ -29,8 +43,8 @@ public class EnemyGenerator : MonoBehaviour
             Instantiate(EnemyPrefab, new Vector3(rnd, 6, 0), Quaternion.identity);
             if (Random.Range(0,1f)<MultiEnemy)
             {
-                Instantiate(EnemyPrefab, new Vector3(rnd+3, 9, 0), Quaternion.identity);
-                Instantiate(EnemyPrefab, new Vector3(rnd-3, 3, 0), Quaternion.identity);
+                Instantiate(EnemyPrefab, new Vector3(rnd+0.8f, 7f, 0), Quaternion.identity);
+                Instantiate(EnemyPrefab, new Vector3(rnd-0.8f,7f,0), Quaternion.identity);
             }
             yield return new WaitForSeconds(Span);
         }
