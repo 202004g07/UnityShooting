@@ -20,6 +20,7 @@ public class DefenselineController : MonoBehaviour
         if (Defenceline.Instance.Durability < 0)
         {
             gameDirector.GoToGameOverScene();
+            gameDirector.LastScore();
         }
     }
 
