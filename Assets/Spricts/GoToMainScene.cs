@@ -1,19 +1,40 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GoToMainScene : MonoBehaviour
 {
+    [SerializeField] private Image image;
+    private bool isPush = true;
     private void Start()
     {
-        Screen.SetResolution(580, 1028, false, 60);
+        image.enabled = false;
+        Screen.SetResolution(580, 970, false, 60);
     }
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKey && isPush)
         {
-            SceneManager.LoadScene("GameScene");
+            isPush = !isPush;
+            image.enabled = true;
+            var c = image.color;
+            c.a = 1.0f;
+
+            image.color = c;
+
+            DOTween.ToAlpha(() => image.color,
+                            color => image.color = color,
+                            0f, // 目標値
+                            1f // 所要時間
+                            )
+                    .OnComplete(() =>
+                    {
+                        SceneManager.LoadScene("GameScene");
+
+                    });
         }
     }
 }
