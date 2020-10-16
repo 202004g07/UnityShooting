@@ -8,15 +8,23 @@ public class EnemyController : MonoBehaviour, IDestroyable, IMovable
     [SerializeField] private float ShakeEffectTime = 0.5f;
 
     private PlayerController Player;
-    private GameObject UI_Manager;
+    private Score UI_Manager;
     private void Start()
     {
-        UI_Manager = GameObject.Find("UI_Manager");
+        UI_Manager = GameObject.Find("UI_Manager").GetComponent<Score>();
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
     void Update()
     {
         Move();
+    }
+    public void SetSpeed(float speed)
+    {
+        Speed = speed;
+    }
+    public float GetSpeed()
+    {
+        return Speed;
     }
     public void Move()
     {
@@ -35,7 +43,7 @@ public class EnemyController : MonoBehaviour, IDestroyable, IMovable
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            UI_Manager.GetComponent<Score>().AddScore();
+            UI_Manager.AddScore();
         }
 
         Destroy();

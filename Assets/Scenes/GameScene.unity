@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211757573a99c2d43afd72b046dc5f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 0
   Durability: 100
   gameDirector: {fileID: 1608410774}
 --- !u!1 &794210578
@@ -3486,7 +3486,7 @@ PrefabInstance:
     - target: {fileID: 6126992667003311972, guid: 7b82568043414fb4198c3ad8c12c42f8,
         type: 3}
       propertyPath: Life
-      value: 10
+      value: 99999
       objectReference: {fileID: 0}
     - target: {fileID: 6126992667003311972, guid: 7b82568043414fb4198c3ad8c12c42f8,
         type: 3}
