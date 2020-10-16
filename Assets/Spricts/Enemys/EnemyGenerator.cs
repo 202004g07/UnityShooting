@@ -25,7 +25,6 @@ public class EnemyGenerator : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Span);
     }
     IEnumerator ChangeSpan()
     {
@@ -57,7 +56,6 @@ public class EnemyGenerator : MonoBehaviour
             foreach (var es in enemys)
             {
                 es.SetSpeed(es.GetSpeed() + speedChangeTest);
-                Debug.Log(es.GetSpeed());
             }
             speedChangeTest += 0.05f;
             yield return new WaitForSeconds(Span);
