@@ -6,6 +6,9 @@ using UnityEngine;
 public class LaserController : MonoBehaviour
 {
     [SerializeField] private GameObject LaserBeam;
+    [SerializeField] private Ease ease = Ease.InSine;
+    [SerializeField] private float LaserTime = 1f;
+    [SerializeField] private float LaserStayTime = 1.5f;
 
     private bool isLaserLauch = true;
     Transform LaserTransformCashe;
@@ -34,18 +37,20 @@ public class LaserController : MonoBehaviour
         isLaserLauch = false;
         LaserBeam.SetActive(true);
 
-        LaserTransformCashe.DOScaleX(defaultScale.x, 1f)
-                            .SetEase(Ease.InSine)
+        LaserTransformCashe.DOScaleX(defaultScale.x, LaserTime)
+                            .SetEase(ease)
                             .OnComplete(() =>
                             {
-                                LaserTransformCashe.DOScaleX(0, 1f)
-                                                   .SetDelay(1.5f)
-                                                   .SetEase(Ease.InSine);
+                                LaserTransformCashe.DOScaleX(0, LaserTime)
+                                                   .SetDelay(LaserStayTime)
+                                                   .SetEase(ease);
                             });
-        DOVirtual.DelayedCall(4, () =>
-        {
-            isLaserLauch = true;
-            LaserBeam.SetActive(false);
-        });
+        var DelayTime = LaserStayTime + LaserTime * 2;
+
+        DOVirtual.DelayedCall(DelayTime, () =>
+          {
+              isLaserLauch = true;
+              LaserBeam.SetActive(false);
+          });
     }
 }
