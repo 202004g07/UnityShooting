@@ -23,9 +23,7 @@ public class EnemyGenerator : MonoBehaviour
         StartCoroutine(CreateEnemy());
         StartCoroutine(ChangeSpan());
     }
-    private void Update()
-    {
-    }
+
     IEnumerator ChangeSpan()
     {
         while (true)

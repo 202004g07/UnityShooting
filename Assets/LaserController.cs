@@ -6,11 +6,12 @@ using UnityEngine;
 public class LaserController : MonoBehaviour
 {
     [SerializeField] private GameObject LaserBeam;
+    [SerializeField] private PlayerController Player;
     [SerializeField] private Ease ease = Ease.InSine;
-    [SerializeField] private float LaserTime = 1f;
-    [SerializeField] private float LaserStayTime = 1.5f;
+    [SerializeField] private float LaserTime = 0.75f;
+    [SerializeField] private float LaserStayTime = 2f;
 
-    private bool isLaserLauch = true;
+    // private bool isLaserLauch = true;
     Transform LaserTransformCashe;
     Vector3 defaultScale;
 
@@ -25,16 +26,15 @@ public class LaserController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isLaserLauch)
+        //プレイヤーが持っているボムの数でビームの時間とか決める？
+        if (Input.GetKeyDown(KeyCode.E) && Player.hasMaxBombs())
         {
-            // LaserBeam.SetActive(true);
-            Debug.Log("LaserShoot");
             Shoot_Laser();
         }
     }
     private void Shoot_Laser()
     {
-        isLaserLauch = false;
+        //   isLaserLauch = false;
         LaserBeam.SetActive(true);
 
         LaserTransformCashe.DOScaleX(defaultScale.x, LaserTime)
@@ -49,7 +49,7 @@ public class LaserController : MonoBehaviour
 
         DOVirtual.DelayedCall(DelayTime, () =>
           {
-              isLaserLauch = true;
+              // isLaserLauch = true;
               LaserBeam.SetActive(false);
           });
     }

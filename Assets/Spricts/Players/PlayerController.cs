@@ -78,6 +78,19 @@ public class PlayerController : MonoBehaviour, IMovable
             gameDirector.LastScore();
         }
     }
+    public bool hasMaxBombs()
+    {
+        if (BombCount == 3)
+        {
+            foreach (var bs in bombs)
+            {
+                bs.SetActive(false);
+            }
+            BombCount = 0;
+            return true;
+        }
+        return false;
+    }
     private void GetBomb()
     {
         hasBomb = true;

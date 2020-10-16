@@ -1210,6 +1210,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622891826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6126992667003311972, guid: 7b82568043414fb4198c3ad8c12c42f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6126992666899904452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988a81e616523e745b4158df3e3538ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &629464929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,7 +2558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BombPrefab: {fileID: 2516863684499648290, guid: 5a86cb6a3381270418882b6d82a29632,
     type: 3}
-  span: 30
+  span: 1
 --- !u!1 &1551789684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,6 +3432,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ease
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126992666899904455, guid: 7b82568043414fb4198c3ad8c12c42f8,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 622891826}
+    - target: {fileID: 6126992666899904455, guid: 7b82568043414fb4198c3ad8c12c42f8,
+        type: 3}
+      propertyPath: LaserStayTime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6126992667003311960, guid: 7b82568043414fb4198c3ad8c12c42f8,
         type: 3}
