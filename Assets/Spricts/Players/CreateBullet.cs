@@ -9,7 +9,11 @@ public class CreateBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("ビーーームウ");
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             Instantiate(BulletPrefab, transform.position, Quaternion.identity);
         }
