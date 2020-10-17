@@ -12,7 +12,7 @@ public class GoToMainScene : MonoBehaviour
     private void Start()
     {
         image.enabled = false;
-        Screen.SetResolution(580, 970, false, 60);
+        Screen.SetResolution(576, 1024, false, 60);
     }
     void Update()
     {

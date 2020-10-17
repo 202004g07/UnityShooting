@@ -27,7 +27,7 @@ public class LaserController : MonoBehaviour
     private void Update()
     {
         //プレイヤーが持っているボムの数でビームの時間とか決める？
-        if (Input.GetKeyDown(KeyCode.E) && Player.hasMaxBombs())
+        if (Input.GetKeyDown(KeyCode.E) && Player.HasMaxBombs())
         {
             Shoot_Laser();
         }

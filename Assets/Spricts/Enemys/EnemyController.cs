@@ -2,10 +2,11 @@
 
 public class EnemyController : MonoBehaviour, IDestroyable, IMovable
 {
-    [SerializeField] private float Speed = 1;
     [SerializeField] private GameObject ExplosionEffects;
+
     [SerializeField] private float ShakeEffectPow = 0.15f;
     [SerializeField] private float ShakeEffectTime = 0.5f;
+    [SerializeField] private float Speed = 3.5f;
 
     private PlayerController Player;
     private Score UI_Manager;
@@ -20,7 +21,7 @@ public class EnemyController : MonoBehaviour, IDestroyable, IMovable
     }
     public void SetSpeed(float speed)
     {
-        Speed = speed;
+        Speed += speed;
     }
     public float GetSpeed()
     {

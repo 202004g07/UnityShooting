@@ -1,27 +1,12 @@
 ﻿using UnityEngine;
 
-public class BulletController : MonoBehaviour, IDestroyable
+public class BulletController : MoveObjBase
 {
-    [SerializeField] private float Speed = 1f;
-    // Update is called once per frame
-    void Update()
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        transform.Translate(0, Speed * Time.deltaTime, 0);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy();
         }
-    }
-    private void OnBecameInvisible()
-    {
-        Destroy();
-    }
-    public void Destroy()
-    {
-        Destroy(gameObject);
     }
 }
