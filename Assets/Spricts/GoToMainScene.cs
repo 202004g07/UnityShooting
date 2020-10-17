@@ -27,8 +27,8 @@ public class GoToMainScene : MonoBehaviour
 
             DOTween.ToAlpha(() => image.color,
                             color => image.color = color,
-                            0f, // 目標値
-                            1f // 所要時間
+                            255f, // 目標値
+                            3f // 所要時間
                             )
                     .OnComplete(() =>
                     {

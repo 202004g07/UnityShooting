@@ -13,7 +13,7 @@ public class Score : MonoBehaviour
     }
     void Update()
     {
-        score.text = $"Score: {point:000}";
+        score.text = $"SCORE: {point:000}";
     }
     public void AddScore()
     {
