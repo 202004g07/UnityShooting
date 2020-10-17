@@ -19,22 +19,8 @@ public class GoToMainScene : MonoBehaviour
         if (Input.anyKey && isPush)
         {
             isPush = !isPush;
-            image.enabled = true;
-            var c = image.color;
-            c.a = 1.0f;
 
-            image.color = c;
-
-            DOTween.ToAlpha(() => image.color,
-                            color => image.color = color,
-                            255f, // 目標値
-                            3f // 所要時間
-                            )
-                    .OnComplete(() =>
-                    {
-                        SceneManager.LoadScene("GameScene");
-
-                    });
+            FadeManager.Instance.LoadScene("GameScene", 1f);
         }
     }
 }
