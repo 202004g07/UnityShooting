@@ -55,7 +55,7 @@ public class EnemyGenerator : MonoBehaviour
             }
             foreach (var es in enemys)
             {
-                es.SetSpeed(speedChangeTest);
+                es.Speed += speedChangeTest;
             }
             speedChangeTest += 0.05f;
             yield return new WaitForSeconds(Span);

@@ -12,19 +12,9 @@ public class EnemyController : MoveObjBase
     {
         UI_Manager = GameObject.Find("UI_Manager").GetComponent<Score>();
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
+        Speed *= -1;
     }
-    protected override void Move(float speed)
-    {
-        base.Move(-speed);
-    }
-    public void SetSpeed(float speed)
-    {
-        Speed += speed;
-    }
-    public float GetSpeed()
-    {
-        return Speed;
-    }
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bomb")) return;

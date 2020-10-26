@@ -10,11 +10,11 @@ public abstract class MoveObjBase : MonoBehaviour
 
     protected virtual void Update()
     {
-        Move(Speed);
+        Move();
     }
-    protected virtual void Move(float speed)
+    protected virtual void Move()
     {
-        transform.Translate(0, speed * Time.deltaTime, 0);
+        transform.Translate(0, Speed * Time.deltaTime, 0);
     }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
