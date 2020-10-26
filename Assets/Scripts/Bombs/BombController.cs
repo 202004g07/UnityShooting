@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombController : MonoBehaviour, IMovable
+public class BombController : MoveObjBase
 {
-    [SerializeField] private float Speed = 10;
-    void Update()
+    private void Start()
     {
-        Move();
-    }
-    public void Move()
-    {
-        transform.Translate(0, -Speed * Time.deltaTime, 0);
+        Speed *= -1;
     }
 }
 
