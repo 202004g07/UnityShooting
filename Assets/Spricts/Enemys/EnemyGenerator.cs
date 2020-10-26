@@ -28,11 +28,13 @@ public class EnemyGenerator : MonoBehaviour
     {
         while (true)
         {
-            Span /= 1.02f;
+            Span /= Accselarate;
             if (Span < ResetSpanTime)
             {
                 Span = SpanBaffa - DiffChangeCount;
                 speedChangeTest = speedBaffa + DiffChangeCount;
+                ResetSpanTime += DiffChangeCount;
+
                 DiffChangeCount += 0.01f;
             }
             yield return new WaitForSeconds(1);
@@ -53,7 +55,7 @@ public class EnemyGenerator : MonoBehaviour
             }
             foreach (var es in enemys)
             {
-                es.SetSpeed(es.GetSpeed() + speedChangeTest);
+                es.Speed += speedChangeTest;
             }
             speedChangeTest += 0.05f;
             yield return new WaitForSeconds(Span);

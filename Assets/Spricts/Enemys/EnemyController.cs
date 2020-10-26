@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-public class EnemyController : MonoBehaviour, IDestroyable, IMovable
+public class EnemyController : MoveObjBase
 {
-    [SerializeField] private float Speed = 1;
     [SerializeField] private GameObject ExplosionEffects;
     [SerializeField] private float ShakeEffectPow = 0.15f;
     [SerializeField] private float ShakeEffectTime = 0.5f;
@@ -13,24 +12,10 @@ public class EnemyController : MonoBehaviour, IDestroyable, IMovable
     {
         UI_Manager = GameObject.Find("UI_Manager").GetComponent<Score>();
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
+        Speed *= -1;
     }
-    void Update()
-    {
-        Move();
-    }
-    public void SetSpeed(float speed)
-    {
-        Speed = speed;
-    }
-    public float GetSpeed()
-    {
-        return Speed;
-    }
-    public void Move()
-    {
-        transform.Translate(0, -Speed * Time.deltaTime, 0);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bomb")) return;
 
@@ -47,14 +32,6 @@ public class EnemyController : MonoBehaviour, IDestroyable, IMovable
         }
 
         Destroy();
-    }
-    private void OnBecameInvisible()
-    {
-        Destroy();
-    }
-    public void Destroy()
-    {
-        Destroy(gameObject);
     }
     private void OnDestroy()
     {

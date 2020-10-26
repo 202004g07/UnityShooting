@@ -1,0 +1,8 @@
+@startuml
+interface IDestroyable {
+    Destroy() : void
+}
+interface IMovable {
+    Move() : void
+}
+@enduml

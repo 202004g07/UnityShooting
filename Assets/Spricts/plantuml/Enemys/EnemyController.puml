@@ -1,0 +1,7 @@
+@startuml
+class EnemyController {
+    + SetSpeed(speed:float) : void
+    + GetSpeed() : float
+}
+MoveObjBase <|-- EnemyController
+@enduml

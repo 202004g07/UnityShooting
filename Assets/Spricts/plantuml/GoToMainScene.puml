@@ -1,0 +1,6 @@
+@startuml
+class GoToMainScene {
+    Update() : void
+}
+MonoBehaviour <|-- GoToMainScene
+@enduml

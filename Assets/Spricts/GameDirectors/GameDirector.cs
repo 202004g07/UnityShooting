@@ -26,7 +26,6 @@ public class GameDirector : MonoBehaviour
     {
         GameUI.SetActive(false);
 
-
         HitEffectCamera.HitEffect(0.15f, 0.5f);
         var gameOverTransCashe = GameOverUI.transform;
 

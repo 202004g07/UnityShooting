@@ -1,0 +1,7 @@
+@startuml
+class Pause {
+    Update() : void
+    + PauseAndResume() : void
+}
+MonoBehaviour <|-- Pause
+@enduml
