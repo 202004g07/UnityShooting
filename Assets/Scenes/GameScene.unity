@@ -2625,7 +2625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BombPrefab: {fileID: 2516863684499648290, guid: 5a86cb6a3381270418882b6d82a29632,
     type: 3}
-  span: 50
+  span: 40.8
 --- !u!1 &1551789684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,7 +3569,7 @@ PrefabInstance:
     - target: {fileID: 6126992667003311972, guid: 7b82568043414fb4198c3ad8c12c42f8,
         type: 3}
       propertyPath: Life
-      value: 999
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b82568043414fb4198c3ad8c12c42f8, type: 3}
