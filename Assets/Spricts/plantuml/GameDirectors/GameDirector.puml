@@ -1,0 +1,7 @@
+@startuml
+class GameDirector {
+    + GoToGameOverScene() : void
+    + LastScore() : void
+}
+MonoBehaviour <|-- GameDirector
+@enduml

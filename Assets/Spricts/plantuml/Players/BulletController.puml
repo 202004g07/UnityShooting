@@ -1,0 +1,5 @@
+@startuml
+class BulletController {
+}
+MoveObjBase <|-- BulletController
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class BombController {
+    Update() : void
+    + Move() : void
+}
+MonoBehaviour <|-- BombController
+IMovable <|-- BombController
+@enduml

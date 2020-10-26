@@ -1,0 +1,7 @@
+@startuml
+class EnemyGenerator {
+    ChangeSpan() : IEnumerator
+    CreateEnemy() : IEnumerator
+}
+MonoBehaviour <|-- EnemyGenerator
+@enduml

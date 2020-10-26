@@ -1,0 +1,5 @@
+@startuml
+class HitEffectCamera <<static>> {
+    + {static} HitEffect(time:float, power:float) : void
+}
+@enduml

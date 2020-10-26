@@ -1,0 +1,10 @@
+@startuml
+class ChikaTest {
+    + speed : float = 1.0f
+    Start() : void
+    Update() : void
+    SetAlphaColor(color:Color) : Color
+}
+MonoBehaviour <|-- ChikaTest
+ChikaTest --> "text" Text
+@enduml

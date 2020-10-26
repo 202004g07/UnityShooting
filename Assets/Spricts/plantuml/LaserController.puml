@@ -1,0 +1,7 @@
+@startuml
+class LaserController {
+}
+MonoBehaviour <|-- LaserController
+LaserController --> "LaserTransformCashe" Transform
+LaserController --> "defaultScale" Vector3
+@enduml

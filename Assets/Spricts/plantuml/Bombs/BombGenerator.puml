@@ -1,0 +1,6 @@
+@startuml
+class BombGenerator {
+    CreateBomb() : IEnumerator
+}
+MonoBehaviour <|-- BombGenerator
+@enduml

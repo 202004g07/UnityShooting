@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour, IMovable
         if (Time.timeScale != 1) return;
         //移動
         Move();
+
         if (Input.GetKeyDown(KeyCode.Q) && hasBomb)
         {
             KillAllEnemys();
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour, IMovable
             gameDirector.LastScore();
         }
     }
-    public bool hasMaxBombs()
+    public bool HasMaxBombs()
     {
         if (BombCount == 3)
         {

@@ -1,0 +1,100 @@
+@startuml
+class GoToMainScene {
+    Update() : void
+}
+MonoBehaviour <|-- GoToMainScene
+class HitEffectCamera <<static>> {
+    + {static} HitEffect(time:float, power:float) : void
+}
+interface IDestroyable {
+    Destroy() : void
+}
+interface IMovable {
+    Move() : void
+}
+class LaserController {
+}
+MonoBehaviour <|-- LaserController
+LaserController --> "LaserTransformCashe" Transform
+LaserController --> "defaultScale" Vector3
+abstract class MoveObjBase {
+    + Speed : float
+}
+MonoBehaviour <|-- MoveObjBase
+class SlowTimeScale <<static>> {
+    + {static} SlowTime(time:float, EndTimeScale:float, ease:Ease) : DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions>
+}
+class BombController {
+    Update() : void
+    + Move() : void
+}
+MonoBehaviour <|-- BombController
+IMovable <|-- BombController
+class BombGenerator {
+    CreateBomb() : IEnumerator
+}
+MonoBehaviour <|-- BombGenerator
+class Defenceline {
+    + Durability : float <<get>> <<set>>
+}
+Defenceline --> "Instance" Defenceline
+class DefenselineController {
+}
+MonoBehaviour <|-- DefenselineController
+class EnemyController {
+    + SetSpeed(speed:float) : void
+    + GetSpeed() : float
+}
+MoveObjBase <|-- EnemyController
+class EnemyGenerator {
+    ChangeSpan() : IEnumerator
+    CreateEnemy() : IEnumerator
+}
+MonoBehaviour <|-- EnemyGenerator
+class GameDirector {
+    + GoToGameOverScene() : void
+    + LastScore() : void
+}
+MonoBehaviour <|-- GameDirector
+class BulletController {
+}
+MoveObjBase <|-- BulletController
+class CreateBullet {
+    Update() : void
+}
+MonoBehaviour <|-- CreateBullet
+class PlayerController {
+    Update() : void
+    + Move() : void
+    + Damage() : void
+    + HasMaxBombs() : bool
+}
+MonoBehaviour <|-- PlayerController
+IMovable <|-- PlayerController
+class ChikaTest {
+    + speed : float = 1.0f
+    Start() : void
+    Update() : void
+    SetAlphaColor(color:Color) : Color
+}
+MonoBehaviour <|-- ChikaTest
+ChikaTest --> "text" Text
+class Pause {
+    Update() : void
+    + PauseAndResume() : void
+}
+MonoBehaviour <|-- Pause
+class Quit {
+    Start() : void
+    + AppQuit() : void
+}
+MonoBehaviour <|-- Quit
+class Score {
+    point : float
+    Update() : void
+    + AddScore() : void
+    + AddScore(num:int) : void
+    + GetScore() : string
+}
+MonoBehaviour <|-- Score
+@enduml
