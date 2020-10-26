@@ -1,0 +1,6 @@
+@startuml
+class Defenceline {
+    + Durability : float <<get>> <<set>>
+}
+Defenceline --> "Instance" Defenceline
+@enduml

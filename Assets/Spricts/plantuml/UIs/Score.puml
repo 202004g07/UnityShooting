@@ -1,0 +1,10 @@
+@startuml
+class Score {
+    point : float
+    Update() : void
+    + AddScore() : void
+    + AddScore(num:int) : void
+    + GetScore() : string
+}
+MonoBehaviour <|-- Score
+@enduml

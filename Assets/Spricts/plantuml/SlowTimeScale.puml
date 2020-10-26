@@ -1,0 +1,5 @@
+@startuml
+class SlowTimeScale <<static>> {
+    + {static} SlowTime(time:float, EndTimeScale:float, ease:Ease) : DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions>
+}
+@enduml

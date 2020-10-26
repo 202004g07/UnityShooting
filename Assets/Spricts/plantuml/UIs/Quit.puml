@@ -1,0 +1,7 @@
+@startuml
+class Quit {
+    Start() : void
+    + AppQuit() : void
+}
+MonoBehaviour <|-- Quit
+@enduml

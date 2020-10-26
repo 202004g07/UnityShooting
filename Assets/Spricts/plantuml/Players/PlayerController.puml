@@ -1,0 +1,10 @@
+@startuml
+class PlayerController {
+    Update() : void
+    + Move() : void
+    + Damage() : void
+    + HasMaxBombs() : bool
+}
+MonoBehaviour <|-- PlayerController
+IMovable <|-- PlayerController
+@enduml

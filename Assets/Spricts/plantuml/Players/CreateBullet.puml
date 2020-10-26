@@ -1,0 +1,6 @@
+@startuml
+class CreateBullet {
+    Update() : void
+}
+MonoBehaviour <|-- CreateBullet
+@enduml

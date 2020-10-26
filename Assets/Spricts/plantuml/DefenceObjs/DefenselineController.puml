@@ -1,0 +1,5 @@
+@startuml
+class DefenselineController {
+}
+MonoBehaviour <|-- DefenselineController
+@enduml
