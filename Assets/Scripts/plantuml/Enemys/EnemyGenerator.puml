@@ -1,7 +1,17 @@
 @startuml
 class EnemyGenerator {
+    - Span : float = 1
+    - Accselarate : float = 1.02f
+    - MultiEnemy : float = 0.2f
+    - ResetSpanTime : float = 0.7f
+    - SpanBaffa : float
+    - speedBaffa : float
+    - DiffChangeCount : float = 0.01f
+    - speedChangeTest : float = 0.01f
+    - Start() : void
     ChangeSpan() : IEnumerator
     CreateEnemy() : IEnumerator
 }
 MonoBehaviour <|-- EnemyGenerator
+EnemyGenerator --> "EnemyPrefab" EnemyController
 @enduml

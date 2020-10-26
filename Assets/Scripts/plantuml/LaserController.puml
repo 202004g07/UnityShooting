@@ -1,7 +1,15 @@
 @startuml
 class LaserController {
+    - LaserTime : float = 0.75f
+    - LaserStayTime : float = 2f
+    - Start() : void
+    - Update() : void
+    - Shoot_Laser() : void
 }
 MonoBehaviour <|-- LaserController
+LaserController --> "LaserBeam" GameObject
+LaserController --> "Player" PlayerController
+LaserController o-> "ease" Ease
 LaserController --> "LaserTransformCashe" Transform
 LaserController --> "defaultScale" Vector3
 @enduml

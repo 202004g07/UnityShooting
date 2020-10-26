@@ -1,10 +1,32 @@
 @startuml
 class PlayerController {
+    - Speed : float = 1
+    - Life : float = 1
+    - ShakeEffectPow : float = 0.15f
+    - ShakeEffectTime : float = 0.5f
+    - damage : float
+    - damageCount : float = 0
+    - hasBomb : bool = false
+    - BombCount : int
+    - Start() : void
     Update() : void
     + Move() : void
+    - OnTriggerEnter2D(collision:Collider2D) : void
     + Damage() : void
     + HasMaxBombs() : bool
+    - GetBomb() : void
+    - UseBomb() : void
+    - KillAllEnemys() : void
+}
+class "List`1"<T> {
 }
 MonoBehaviour <|-- PlayerController
 IMovable <|-- PlayerController
+PlayerController --> "gameDirector" GameDirector
+PlayerController --> "UI_Manager" Score
+PlayerController --> "Bombs" Transform
+PlayerController --> "BG_Color" Color
+PlayerController --> "m_Color" Color
+PlayerController --> "spriteRenderer" SpriteRenderer
+PlayerController --> "bombs<GameObject>" "List`1"
 @enduml

@@ -1,7 +1,13 @@
 @startuml
 class EnemyController {
-    + SetSpeed(speed:float) : void
-    + GetSpeed() : float
+    - ShakeEffectPow : float = 0.15f
+    - ShakeEffectTime : float = 0.5f
+    - Start() : void
+    # <<override>> OnTriggerEnter2D(collision:Collider2D) : void
+    - OnDestroy() : void
 }
 MoveObjBase <|-- EnemyController
+EnemyController --> "ExplosionEffects" GameObject
+EnemyController --> "Player" PlayerController
+EnemyController --> "UI_Manager" Score
 @enduml

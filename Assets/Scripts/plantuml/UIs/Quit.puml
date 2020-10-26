@@ -4,4 +4,5 @@ class Quit {
     + AppQuit() : void
 }
 MonoBehaviour <|-- Quit
+Quit --> "QuitButton" Button
 @enduml

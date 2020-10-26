@@ -1,5 +1,10 @@
 @startuml
 class DefenselineController {
+    - damage : float = 10
+    - Durability : float = 100
+    - Start() : void
+    - OnTriggerEnter2D(collision:Collider2D) : void
 }
 MonoBehaviour <|-- DefenselineController
+DefenselineController --> "gameDirector" GameDirector
 @enduml

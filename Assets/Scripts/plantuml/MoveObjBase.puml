@@ -1,6 +1,11 @@
 @startuml
 abstract class MoveObjBase {
     + Speed : float
+    # <<virtual>> Update() : void
+    # <<virtual>> Move() : void
+    # <<virtual>> OnTriggerEnter2D(collision:Collider2D) : void
+    # OnBecameInvisible() : void
+    # Destroy() : void
 }
 MonoBehaviour <|-- MoveObjBase
 @enduml

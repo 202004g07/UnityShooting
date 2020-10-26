@@ -1,5 +1,6 @@
 @startuml
 class BombController {
+    - Speed : float = 10
     Update() : void
     + Move() : void
 }

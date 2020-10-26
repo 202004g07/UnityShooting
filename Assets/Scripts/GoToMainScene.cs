@@ -7,12 +7,10 @@ using UnityEngine.UI;
 
 public class GoToMainScene : MonoBehaviour
 {
-    [SerializeField] private Image image;
     private bool isPush = true;
     private void Start()
     {
-        image.enabled = false;
-        Screen.SetResolution(576, 1024, false, 60);
+        Screen.SetResolution(800, 576, false, 60);
     }
     void Update()
     {

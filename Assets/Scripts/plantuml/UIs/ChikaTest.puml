@@ -1,6 +1,7 @@
 @startuml
 class ChikaTest {
     + speed : float = 1.0f
+    - time : float
     Start() : void
     Update() : void
     SetAlphaColor(color:Color) : Color

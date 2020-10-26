@@ -1,6 +1,9 @@
 @startuml
 class BombGenerator {
+    - span : float
+    - Start() : void
     CreateBomb() : IEnumerator
 }
 MonoBehaviour <|-- BombGenerator
+BombGenerator --> "BombPrefab" BombController
 @enduml

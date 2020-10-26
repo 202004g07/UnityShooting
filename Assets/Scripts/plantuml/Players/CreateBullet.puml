@@ -3,4 +3,5 @@ class CreateBullet {
     Update() : void
 }
 MonoBehaviour <|-- CreateBullet
+CreateBullet --> "BulletPrefab" BulletController
 @enduml

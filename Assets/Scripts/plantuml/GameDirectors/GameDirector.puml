@@ -1,7 +1,18 @@
 @startuml
 class GameDirector {
+    - time : float = 2.0f
+    - EndTimeScale : float = 0
+    - Start() : void
     + GoToGameOverScene() : void
     + LastScore() : void
+    - Retry() : void
 }
 MonoBehaviour <|-- GameDirector
+GameDirector --> "GameOverUI" GameObject
+GameDirector --> "GameUI" GameObject
+GameDirector --> "GO_Score" Text
+GameDirector --> "ScoreText" Score
+GameDirector --> "RetryButton" Button
+GameDirector --> "ExplosionEffects" GameObject
+GameDirector o-> "ease" Ease
 @enduml

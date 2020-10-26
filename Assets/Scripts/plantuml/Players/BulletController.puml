@@ -1,5 +1,6 @@
 @startuml
 class BulletController {
+    # <<override>> OnTriggerEnter2D(collision:Collider2D) : void
 }
 MoveObjBase <|-- BulletController
 @enduml

@@ -1,8 +1,11 @@
 @startuml
 class GoToMainScene {
+    - isPush : bool = true
+    - Start() : void
     Update() : void
 }
 MonoBehaviour <|-- GoToMainScene
+GoToMainScene --> "image" Image
 class HitEffectCamera <<static>> {
     + {static} HitEffect(time:float, power:float) : void
 }
@@ -13,66 +16,142 @@ interface IMovable {
     Move() : void
 }
 class LaserController {
+    - LaserTime : float = 0.75f
+    - LaserStayTime : float = 2f
+    - Start() : void
+    - Update() : void
+    - Shoot_Laser() : void
 }
 MonoBehaviour <|-- LaserController
+LaserController --> "LaserBeam" GameObject
+LaserController --> "Player" PlayerController
+LaserController o-> "ease" Ease
 LaserController --> "LaserTransformCashe" Transform
 LaserController --> "defaultScale" Vector3
 abstract class MoveObjBase {
     + Speed : float
+    # <<virtual>> Update() : void
+    # <<virtual>> Move() : void
+    # <<virtual>> OnTriggerEnter2D(collision:Collider2D) : void
+    # OnBecameInvisible() : void
+    # Destroy() : void
 }
 MonoBehaviour <|-- MoveObjBase
 class SlowTimeScale <<static>> {
     + {static} SlowTime(time:float, EndTimeScale:float, ease:Ease) : DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions>
 }
 class BombController {
+    - Speed : float = 10
     Update() : void
     + Move() : void
 }
 MonoBehaviour <|-- BombController
 IMovable <|-- BombController
 class BombGenerator {
+    - span : float
+    - Start() : void
     CreateBomb() : IEnumerator
 }
 MonoBehaviour <|-- BombGenerator
+BombGenerator --> "BombPrefab" BombController
 class Defenceline {
+    - Defenceline()
     + Durability : float <<get>> <<set>>
 }
+Defenceline --> "instance" Defenceline
 Defenceline --> "Instance" Defenceline
 class DefenselineController {
+    - damage : float = 10
+    - Durability : float = 100
+    - Start() : void
+    - OnTriggerEnter2D(collision:Collider2D) : void
 }
 MonoBehaviour <|-- DefenselineController
+DefenselineController --> "gameDirector" GameDirector
 class EnemyController {
-    + SetSpeed(speed:float) : void
-    + GetSpeed() : float
+    - ShakeEffectPow : float = 0.15f
+    - ShakeEffectTime : float = 0.5f
+    - Start() : void
+    # <<override>> OnTriggerEnter2D(collision:Collider2D) : void
+    - OnDestroy() : void
 }
 MoveObjBase <|-- EnemyController
+EnemyController --> "ExplosionEffects" GameObject
+EnemyController --> "Player" PlayerController
+EnemyController --> "UI_Manager" Score
 class EnemyGenerator {
+    - Span : float = 1
+    - Accselarate : float = 1.02f
+    - MultiEnemy : float = 0.2f
+    - ResetSpanTime : float = 0.7f
+    - SpanBaffa : float
+    - speedBaffa : float
+    - DiffChangeCount : float = 0.01f
+    - speedChangeTest : float = 0.01f
+    - Start() : void
     ChangeSpan() : IEnumerator
     CreateEnemy() : IEnumerator
 }
 MonoBehaviour <|-- EnemyGenerator
+EnemyGenerator --> "EnemyPrefab" EnemyController
 class GameDirector {
+    - time : float = 2.0f
+    - EndTimeScale : float = 0
+    - Start() : void
     + GoToGameOverScene() : void
     + LastScore() : void
+    - Retry() : void
 }
 MonoBehaviour <|-- GameDirector
+GameDirector --> "GameOverUI" GameObject
+GameDirector --> "GameUI" GameObject
+GameDirector --> "GO_Score" Text
+GameDirector --> "ScoreText" Score
+GameDirector --> "RetryButton" Button
+GameDirector --> "ExplosionEffects" GameObject
+GameDirector o-> "ease" Ease
 class BulletController {
+    # <<override>> OnTriggerEnter2D(collision:Collider2D) : void
 }
 MoveObjBase <|-- BulletController
 class CreateBullet {
     Update() : void
 }
 MonoBehaviour <|-- CreateBullet
+CreateBullet --> "BulletPrefab" BulletController
 class PlayerController {
+    - Speed : float = 1
+    - Life : float = 1
+    - ShakeEffectPow : float = 0.15f
+    - ShakeEffectTime : float = 0.5f
+    - damage : float
+    - damageCount : float = 0
+    - hasBomb : bool = false
+    - BombCount : int
+    - Start() : void
     Update() : void
     + Move() : void
+    - OnTriggerEnter2D(collision:Collider2D) : void
     + Damage() : void
     + HasMaxBombs() : bool
+    - GetBomb() : void
+    - UseBomb() : void
+    - KillAllEnemys() : void
+}
+class "List`1"<T> {
 }
 MonoBehaviour <|-- PlayerController
 IMovable <|-- PlayerController
+PlayerController --> "gameDirector" GameDirector
+PlayerController --> "UI_Manager" Score
+PlayerController --> "Bombs" Transform
+PlayerController --> "BG_Color" Color
+PlayerController --> "m_Color" Color
+PlayerController --> "spriteRenderer" SpriteRenderer
+PlayerController --> "bombs<GameObject>" "List`1"
 class ChikaTest {
     + speed : float = 1.0f
+    - time : float
     Start() : void
     Update() : void
     SetAlphaColor(color:Color) : Color
@@ -80,21 +159,27 @@ class ChikaTest {
 MonoBehaviour <|-- ChikaTest
 ChikaTest --> "text" Text
 class Pause {
+    - AnimationTime : float = 1
+    - Start() : void
     Update() : void
     + PauseAndResume() : void
 }
 MonoBehaviour <|-- Pause
+Pause --> "PauseUI" GameObject
 class Quit {
     Start() : void
     + AppQuit() : void
 }
 MonoBehaviour <|-- Quit
+Quit --> "QuitButton" Button
 class Score {
     point : float
+    - Start() : void
     Update() : void
     + AddScore() : void
     + AddScore(num:int) : void
     + GetScore() : string
 }
 MonoBehaviour <|-- Score
+Score --> "score" Text
 @enduml

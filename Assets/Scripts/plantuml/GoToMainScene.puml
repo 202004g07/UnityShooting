@@ -1,6 +1,9 @@
 @startuml
 class GoToMainScene {
+    - isPush : bool = true
+    - Start() : void
     Update() : void
 }
 MonoBehaviour <|-- GoToMainScene
+GoToMainScene --> "image" Image
 @enduml

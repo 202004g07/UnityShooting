@@ -1,7 +1,10 @@
 @startuml
 class Pause {
+    - AnimationTime : float = 1
+    - Start() : void
     Update() : void
     + PauseAndResume() : void
 }
 MonoBehaviour <|-- Pause
+Pause --> "PauseUI" GameObject
 @enduml
